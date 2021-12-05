@@ -15,10 +15,10 @@ class WordsGame():
     def acquiert(self, filename):
         '''Acquiert every words from a filename.
         filename:string : filename location, absolute path should be unicode'''
+        print(f"Reading {filename}")
         file_content = ""
         tmp_file_content = ""
         tmp_words_list = []
-        offset = 0
 
         file = open(filename, "r")
         file_content = file.read()
@@ -42,8 +42,8 @@ class WordsGame():
 
         tmp_words_list = file_content.split(" ")
         for word in tmp_words_list:
-            if len(word.strip(" ")) < 2:
-                self.words_list.append(word.strip(" "))
+            if len(word.strip(" ")) > 2:
+                self.words_list.append(word)
         # Delete twins
         self.words_list = list(set(self.words_list))
         # Sort by alphabetical
@@ -51,14 +51,14 @@ class WordsGame():
 
     def save(self):
         ''' Save the words list to disk '''
-        with open("data\mydb.json", "w") as file:
+        with open("data\\mydb.json", "w") as file:
             json.dump(self.words_list, file)
             file.close()
         print(f"{len(self.words_list)} words saved.")
 
     def load(self):
         ''' Load the words list from disk '''
-        with open("data\mydb.json", "r") as file:
+        with open("data\\mydb.json", "r") as file:
             self.words_list = json.load(file)
             file.close()
         print(f"{len(self.words_list)} words loaded.")

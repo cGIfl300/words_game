@@ -10,9 +10,15 @@ result = []
 
 app = WordsGame()
 print("Loading dictionnary")
-app.load()
-# app.acquiert("data\liste_francais.txt")
-# app.save()
+
+# If there are no initial db, that's not a problem, just ignore.
+try:
+    app.load()
+except FileNotFoundError:
+    pass
+
+app.acquiert("data\\liste_francais.txt")
+app.save()
 
 print("""We do use regex, exemple: .ch. => echo, tcho.
 NOT NEEDED : ^start
