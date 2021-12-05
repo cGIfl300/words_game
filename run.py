@@ -10,9 +10,9 @@ result = []
 
 app = WordsGame()
 print("Loading dictionnary")
+app.load()
 # app.acquiert("data\liste_francais.txt")
 # app.save()
-app.load()
 
 print("""We do use regex, exemple: .ch. => echo, tcho.
 NOT NEEDED : ^start

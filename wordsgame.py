@@ -42,7 +42,8 @@ class WordsGame():
 
         tmp_words_list = file_content.split(" ")
         for word in tmp_words_list:
-            self.words_list.append(word.strip(" "))
+            if len(word.strip(" ")) < 2:
+                self.words_list.append(word.strip(" "))
         # Delete twins
         self.words_list = list(set(self.words_list))
         # Sort by alphabetical
