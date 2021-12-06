@@ -17,8 +17,8 @@ try:
 except FileNotFoundError:
     pass
 
-#pp.acquirer("data\\liste_francais.txt")
-#app.save()
+# app.acquirer("data\\liste_francais.txt")
+# app.save()
 
 print("""We do use regex, exemple: .ch. => echo, tcho.
 NOT NEEDED : ^start
