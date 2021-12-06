@@ -8,9 +8,9 @@
 
 
 from unidecode import unidecode
-
+from clean_string import clean_string
 import json
-
+import re
 
 
 class WordsGame():
@@ -31,8 +31,6 @@ class WordsGame():
         print(f"Reading {filename}")
 
         file_content = ""
-
-        tmp_file_content = ""
 
         tmp_words_list = []
 
@@ -63,16 +61,7 @@ class WordsGame():
 
         # Cleaning the file from illegal characters
 
-        for character in file_content:
-
-            if character in allowed:
-
-                tmp_file_content = tmp_file_content + character
-
-        file_content = tmp_file_content
-
-        tmp_file_content = ""
-
+        file_content = clean_string(allowed, file_content)
 
         tmp_words_list = file_content.split(" ")
 
@@ -112,3 +101,13 @@ class WordsGame():
 
         print(f"{len(self.words_list)} words loaded.")
 
+    def find_word(self, pattern):
+        ''' Search for a word.
+        pattern: only . or a letter
+        return: a list of words, [] if none
+        '''
+        # Clean pattern from unwanted characters
+        allowed = "abcdefghijklmnopqrstuvwxyz."
+        pattern = clean_string(allowed, pattern)
+        result = re.compile(f"^{pattern}$")
+        return list(filter(result.match, self.words_list))
