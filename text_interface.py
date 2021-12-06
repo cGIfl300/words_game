@@ -11,6 +11,11 @@ result = []
 app = WordsGame()
 
 
+def demo_acquirer():
+    # Acquire a new file
+    app.acquirer("data\\liste_francais.txt")
+    app.save()
+
 def play():
     print("""We do use regex, example: .ch. => echo, tcho.
 NOT NEEDED : ^start
@@ -39,9 +44,7 @@ try:
 except FileNotFoundError:
     pass
 
-# Acquire a new file
-# app.acquirer("data\\liste_francais.txt")
-# app.save()
+# demo_acquirer()
 
 while True:
     play()
