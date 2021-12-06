@@ -16,7 +16,7 @@ def play():
 NOT NEEDED : ^start
 NOT NEEDED : end$
 . any char\n
-exit: exit the software""")
+exit: exit the software\n""")
     pattern = input("Pattern : ")
 
     if pattern == "":
