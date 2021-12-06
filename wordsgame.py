@@ -20,6 +20,7 @@ class WordsGame:
     This class is the all-in-one tool for this project."""
 
     words_list = []  # The global words list
+    data_base_path = "data\\mydb.mydb.json"
 
     def acquirer(self, filename):
 
@@ -28,8 +29,6 @@ class WordsGame:
         filename:string : filename location, absolute path should be unicode"""
 
         print(f"Reading {filename}")
-
-        data_base_path = "data\\mydb.mydb.json"
 
         file_content = ""
 
