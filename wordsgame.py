@@ -107,6 +107,7 @@ class WordsGame:
         """
         # Clean pattern from unwanted characters
         allowed = "abcdefghijklmnopqrstuvwxyz."
+        pattern = pattern.lower()
         pattern = clean_string(allowed, pattern)
         result = re.compile(f"^{pattern}$")
         return list(filter(result.match, self.words_list))
