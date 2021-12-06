@@ -34,11 +34,13 @@ class WordsGame():
 
         tmp_words_list = []
 
-
-        file = open(filename, "r")
-
-        file_content = file.read()
-        file.close()
+        try:
+            file = open(filename, "r")
+            file_content = file.read()
+            file.close()
+        except UnicodeDecodeError:
+            print(f"I can't open the file {filename}. Let's continue anyway.")
+            return
 
 
         if len(file_content) == 0:
@@ -55,7 +57,7 @@ class WordsGame():
 
         allowed = "abcdefghijklmnopqrstuvwxyz- "
 
-        file_content = unidecode(file_content)
+        file_content = unidecode(file_content, errors='ignore')
 
         file_content = file_content.lower()
 
