@@ -37,6 +37,7 @@ exit: exit the software\n"""
 
     print("\n==========")
     print(app.find_word(pattern))
+    print(f"{len(app.find_word(pattern))} match")
     print("==========\n")
 
 
