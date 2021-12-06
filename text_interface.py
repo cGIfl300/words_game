@@ -16,12 +16,15 @@ def demo_acquirer():
     app.acquirer("data\\liste_francais.txt")
     app.save()
 
+
 def play():
-    print("""We do use regex, example: .ch. => echo, tcho.
+    print(
+        """We do use regex, example: .ch. => echo, tcho.
 NOT NEEDED : ^start
 NOT NEEDED : end$
 . any char\n
-exit: exit the software\n""")
+exit: exit the software\n"""
+    )
     pattern = input("Pattern : ")
 
     if pattern == "":

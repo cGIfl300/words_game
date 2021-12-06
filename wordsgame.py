@@ -13,24 +13,23 @@ import json
 import re
 
 
-class WordsGame():
+class WordsGame:
 
-    '''WordsGames
+    """WordsGames
 
-    This class is the all-in-one tool for this project.'''
+    This class is the all-in-one tool for this project."""
 
     words_list = []  # The global words list
 
-
     def acquirer(self, filename):
 
-        '''Acquirer every words from a filename.
+        """Acquirer every words from a filename.
 
-        filename:string : filename location, absolute path should be unicode'''
+        filename:string : filename location, absolute path should be unicode"""
 
         print(f"Reading {filename}")
 
-        data_base_path="data\\mydb.mydb.json"
+        data_base_path = "data\\mydb.mydb.json"
 
         file_content = ""
 
@@ -43,7 +42,6 @@ class WordsGame():
         except UnicodeDecodeError:
             print(f"I can't open the file {filename}. Let's continue anyway.")
             return
-
 
         if len(file_content) == 0:
 
@@ -59,7 +57,7 @@ class WordsGame():
 
         allowed = "abcdefghijklmnopqrstuvwxyz- "
 
-        file_content = unidecode(file_content, errors='ignore')
+        file_content = unidecode(file_content, errors="ignore")
 
         file_content = file_content.lower()
 
@@ -81,10 +79,9 @@ class WordsGame():
         # Sort by alphabetical
         self.words_list.sort()
 
-
     def save(self):
 
-        ''' Save the words list to disk '''
+        """Save the words list to disk"""
 
         with open(self.data_base_path, "w") as file:
 
@@ -93,10 +90,9 @@ class WordsGame():
 
         print(f"{len(self.words_list)} words saved.")
 
-
     def load(self):
 
-        ''' Load the words list from disk '''
+        """Load the words list from disk"""
 
         with open(self.data_base_path, "r") as file:
 
@@ -106,10 +102,10 @@ class WordsGame():
         print(f"{len(self.words_list)} words loaded.")
 
     def find_word(self, pattern):
-        ''' Search for a word.
+        """Search for a word.
         pattern: only . or a letter
         return: a list of words, [] if none
-        '''
+        """
         # Clean pattern from unwanted characters
         allowed = "abcdefghijklmnopqrstuvwxyz."
         pattern = clean_string(allowed, pattern)
