@@ -9,22 +9,39 @@ from wordsgame import WordsGame
 result = []
 
 app = WordsGame()
-print("Loading dictionnary")
 
+
+def play():
+    print("""We do use regex, example: .ch. => echo, tcho.
+NOT NEEDED : ^start
+NOT NEEDED : end$
+. any char\n
+exit: exit the software""")
+    pattern = input("Pattern : ")
+
+    if pattern == "":
+        # My own easter :-)
+        pattern = "..."
+
+    if pattern == "exit":
+        print("Exiting software, thank you for playing.")
+        exit()
+
+    print("\n==========")
+    print(app.find_word(pattern))
+    print("==========\n")
+
+
+print("Loading dictionnary")
 # If there are no initial db, that's not a problem, just ignore.
 try:
     app.load()
 except FileNotFoundError:
     pass
 
+# Acquire a new file
 # app.acquirer("data\\liste_francais.txt")
 # app.save()
 
-print("""We do use regex, exemple: .ch. => echo, tcho.
-NOT NEEDED : ^start
-NOT NEEDED : end$
-. any char\n""")
-pattern = input("Votre patern : ")
-result = re.compile(f"^{pattern}$")
-wordlist = list(filter(result.match, app.words_list))
-print(wordlist)
+while True:
+    play()
