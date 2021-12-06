@@ -30,6 +30,8 @@ class WordsGame():
 
         print(f"Reading {filename}")
 
+        data_base_path="data\\mydb.mydb.json"
+
         file_content = ""
 
         tmp_words_list = []
@@ -84,7 +86,7 @@ class WordsGame():
 
         ''' Save the words list to disk '''
 
-        with open("data\\mydb.json", "w") as file:
+        with open(self.data_base_path, "w") as file:
 
             json.dump(self.words_list, file)
             file.close()
@@ -96,7 +98,7 @@ class WordsGame():
 
         ''' Load the words list from disk '''
 
-        with open("data\\mydb.json", "r") as file:
+        with open(self.data_base_path, "r") as file:
 
             self.words_list = json.load(file)
             file.close()
