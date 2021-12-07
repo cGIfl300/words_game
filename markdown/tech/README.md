@@ -41,12 +41,12 @@ To load the actual words list from disk, use:
 app = WordsGame()
 app.load()
 ```  
-The database will be loaded from *app.data_base_path*. Using our JSON format.  
+The database will be loaded from *self.data_base_path*. Using our JSON format.  
 ### Search for Words  
 I built differents search engines. Here they are.  
 #### Word with missing letters  
 Example: "B _ _ L D"  
-This is the basic function *find_word* who can do that. It returns a list of available words from the database, if none an empty list. You must use dots *.* for unknown letters.  
+This is the basic function *find_word* who can do that. It returns a list of available words from the database, if none, an empty list. You must use dots *.* for unknown letters.  
 ```python  
 app = WordsGame()
 app.load()  
