@@ -7,7 +7,7 @@ Simply instance it using:
 app = WordsGame()
 ```  
 Instancing **WordsGame** don't load the database.
-Before instancing WordsGame you should review the source code, by default the database path is *data\mydb.json* you can change it.  
+Before instancing **WordsGame** you should review the source code, by default the database path is *data\mydb.json* you can change it.  
 ### Changing the database path  
 To change the database path you need to change the value of the attribute *data_base_path*.  
 ```python
@@ -26,7 +26,7 @@ The acquisition model use [unidecode](https://pypi.org/project/Unidecode/) to co
 ```  
 Once this is done, it convert the file to lowercase and remove not allowed characters, by default we allow "[a-z]- ".  
 The new word list is joined to the existing one (if any) and we remove twins to maintain a clean words list.  
-**Acquiring a new file don't save it to the words database!**  
+**Acquiring a new file don't save it to disk!**  
 ### Save the words list to disk
 To save the actual words list to disk, use:  
 ```python  
