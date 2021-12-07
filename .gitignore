@@ -1,6 +1,13 @@
+# IDE files
 .idea/
 .workplace/
-__pycache__/
-data/
 .vscode/
+
+# Cache files
+__pycache__/
+
+# virtualenv folder
 venv/
+
+# Data folders
+data/
