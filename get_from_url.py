@@ -12,6 +12,7 @@ from requests.exceptions import MissingSchema
 
 class URLError(Exception):
     """Any error related to URL, raised when the http response is not 2XX."""
+
     pass
 
 
