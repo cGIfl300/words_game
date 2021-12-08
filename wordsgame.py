@@ -1,14 +1,21 @@
 #!/bin/bash /usr/bin/env python3
 
+
 # -*- coding: utf-8 -*-
 
+
 # Copyright (C) 2021 cGIfl300, <cgifl300@gmail.com>
+
 
 # Under GPLv3 see LICENSE.md
 
 
 from unidecode import unidecode
+from get_from_url import get_from_url
+
 from clean_string import clean_string
+
+
 import json
 import re
 
@@ -17,14 +24,19 @@ class WordsGame:
 
     """WordsGames
 
+
+
     This class is the all-in-one tool for this project."""
 
     words_list = []  # The global words list
+
     data_base_path = "data\\mydb.json"
 
     def acquirer(self, filename):
 
         """Acquirer every words from a filename.
+
+
 
         filename:string : filename location, absolute path should be unicode"""
 
@@ -32,39 +44,47 @@ class WordsGame:
 
         file_content = ""
 
-        tmp_words_list = []
-
         try:
+
             file = open(filename, "r")
+
             file_content = file.read()
             file.close()
+
         except UnicodeDecodeError:
+
             print(f"I can't open the file {filename}. Let's continue anyway.")
+
             return
 
-        if len(file_content) == 0:
+        self.__add_words(file_content)
 
+    def get_from_url(self, url):
+        """Get words from a given url"""
+        content = ""
+        content = get_from_url(url)
+        self.__add_words(content)
+
+    def __add_words(self, data):
+        """Adding words from a string."""
+        tmp_words_list = []
+        if len(data) == 0:
             # exit if the file is empty
-
-            print("The file is empty.")
-
+            print("Nothing to add.")
             return
 
-        file_content = " ".join(file_content.splitlines())
+        data = " ".join(data.splitlines())
 
         # convert french specific characters to latins
-
         allowed = "abcdefghijklmnopqrstuvwxyz- "
-
-        file_content = unidecode(file_content, errors="ignore")
-
-        file_content = file_content.lower()
+        data = unidecode(data, errors="ignore")
+        data = data.lower()
 
         # Cleaning the file from illegal characters
 
-        file_content = clean_string(allowed, file_content)
+        data = clean_string(allowed, data)
 
-        tmp_words_list = file_content.split(" ")
+        tmp_words_list = data.split(" ")
 
         for word in tmp_words_list:
 
@@ -101,13 +121,24 @@ class WordsGame:
         print(f"{len(self.words_list)} words loaded.")
 
     def find_word(self, pattern):
+
         """Search for a word.
+
+
         pattern: only . or a letter
+
+
         return: a list of words, [] if none
         """
+
         # Clean pattern from unwanted characters
+
         allowed = "abcdefghijklmnopqrstuvwxyz."
+
         pattern = pattern.lower()
+
         pattern = clean_string(allowed, pattern)
+
         result = re.compile(f"^{pattern}$")
+
         return list(filter(result.match, self.words_list))

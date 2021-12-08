@@ -42,6 +42,14 @@ app = WordsGame()
 app.load()
 ```  
 The database will be loaded from *self.data_base_path*. Using our JSON format.  
+### Retrieve words from an URL
+To retrieve words from an URL, use:  
+```python  
+app = WordsGame()
+app.get_from_url(url)
+```  
+The words will be loaded from *url*.  
+**Acquiring from an URL don't save it to disk!**  
 ### Search for Words  
 I built differents search engines. Here they are.  
 #### Word with missing letters  
