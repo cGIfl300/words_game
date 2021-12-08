@@ -40,7 +40,7 @@ exit: exit the software\n"""
     print("==========\n")
 
 
-print("Loading dictionnary")
+print("Loading dictionary")
 # If there are no initial db, that's not a problem, just ignore.
 try:
     app.load()

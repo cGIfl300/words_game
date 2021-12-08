@@ -10,9 +10,8 @@ from bs4 import BeautifulSoup
 from requests.exceptions import MissingSchema
 
 
-class URL_Error(Exception):
+class URLError(Exception):
     """Any error related to URL, raised when the http response is not 2XX."""
-
     pass
 
 
@@ -28,7 +27,7 @@ def get_from_url(URL):
 
     # Continue if status is ok, else raise an error
     if request.status_code < 200 or request.status_code > 299:
-        raise URL_Error("Cannot retrieves URL.")
+        raise URLError("Cannot retrieves URL.")
         return
 
     # Cleaning HTML to get the text only
@@ -40,7 +39,6 @@ if __name__ == "__main__":
     from wordsgame import WordsGame
 
     app = WordsGame()
-
     content = ""
 
     try:

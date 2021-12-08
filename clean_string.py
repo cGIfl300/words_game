@@ -1,9 +1,6 @@
 #!/bin/bash /usr/bin/env python3
-
 # -*- coding: utf-8 -*-
-
 # Copyright (C) 2021 cGIfl300, <cgifl300@gmail.com>
-
 # Under GPLv3 see LICENSE.md
 
 
