@@ -3,7 +3,6 @@
 # Copyright (C) 2021 cGIfl300, <cgifl300@gmail.com>
 # Under GPLv3 see LICENSE.md
 
-import re
 from wordsgame import WordsGame
 
 result = []

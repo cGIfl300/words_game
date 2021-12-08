@@ -10,18 +10,16 @@
 # Under GPLv3 see LICENSE.md
 
 
-from unidecode import unidecode
-from get_from_url import get_from_url
-
-from clean_string import clean_string
-
-
 import json
 import re
 
+from unidecode import unidecode
+
+from clean_string import clean_string
+from get_from_url import get_from_url
+
 
 class WordsGame:
-
     """WordsGames
 
 
@@ -103,7 +101,6 @@ class WordsGame:
         """Save the words list to disk"""
 
         with open(self.data_base_path, "w") as file:
-
             json.dump(self.words_list, file)
             file.close()
 
@@ -114,7 +111,6 @@ class WordsGame:
         """Load the words list from disk"""
 
         with open(self.data_base_path, "r") as file:
-
             self.words_list = json.load(file)
             file.close()
 

@@ -3,10 +3,11 @@
 # Copyright (C) 2021 cGIfl300, <cgifl300@gmail.com>
 # Under GPLv3 see LICENSE.md
 
-from bs4 import BeautifulSoup
-import requests
-from requests.exceptions import MissingSchema
 from sys import argv
+
+import requests
+from bs4 import BeautifulSoup
+from requests.exceptions import MissingSchema
 
 
 class URL_Error(Exception):
