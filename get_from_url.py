@@ -16,12 +16,12 @@ class URLError(Exception):
     pass
 
 
-def get_from_url(URL):
+def get_from_url(source_url):
     """Return a text from an URL.
     URL: URL String
     """
     try:
-        request = requests.get(URL)
+        request = requests.get(source_url)
     except MissingSchema:
         print("BAD url")
         return
@@ -29,7 +29,6 @@ def get_from_url(URL):
     # Continue if status is ok, else raise an error
     if request.status_code < 200 or request.status_code > 299:
         raise URLError("Cannot retrieves URL.")
-        return
 
     # Cleaning HTML to get the text only
     soup = BeautifulSoup(request.text, "html.parser")
@@ -41,6 +40,7 @@ if __name__ == "__main__":
 
     app = WordsGame()
     content = ""
+    url = ""
 
     try:
         url = argv[1]
